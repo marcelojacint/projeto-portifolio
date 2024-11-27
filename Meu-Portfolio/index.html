@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfólio</title>
+    <link rel="stylesheet" href="./css/styles.css">
+</head>
+<body>
+    <header class="navbar">
+        <nav class="nav-links">
+            <a href="#hero">Início</a>
+            <a href="#about">Sobre</a>
+            <a href="#skills">Habilidades</a>
+            <a href="#projects">Projetos</a>
+        </nav>
+    </header>
+
+    <section id="hero" class="hero">
+        <h1>Bem-vindo ao meu Portfólio</h1>
+        <p>Descubra meus projetos, habilidades e experiência profissional.</p>
+        <button class="hero-btn" onclick="document.querySelector('#about').scrollIntoView({ behavior: 'smooth' });">
+            Saiba Mais
+        </button>
+    </section>
+
+    <section id="about">
+        <div class="about-content">
+            <div class="profile-img">
+                <img src="./img/profile.jpg" alt="Minha Foto">
+            </div>
+            <div>
+                <h2>Sobre Mim</h2>
+                <p>Sou um desenvolvedor apaixonado por criar experiências digitais incríveis...</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills">
+        <h2>Habilidades</h2>
+        <div class="skills-grid">
+            <div class="skill" data-summary="JavaScript: Uma linguagem versátil para aplicações web e mais!">
+                🛠️ JavaScript
+            </div>
+            <div class="skill" data-summary="Python: Ideal para automação, análise de dados e machine learning.">
+                🐍 Python
+            </div>
+            <div class="skill" data-summary="Figma: Ferramenta poderosa para design de interfaces e protótipos.">
+                🎨 Figma
+            </div>
+        </div>
+    </section>
+
+    <section id="projects">
+        <h2>Meus Projetos</h2>
+        <div class="project-grid">
+            <div class="project-card" data-link="https://github.com/marcelojacint/demo-dao-jdbc">
+                <h3>Demo DAO JDBC</h3>
+                <p>Exemplo de projeto usando o padrão DAO e JDBC.</p>
+            </div>
+            <div class="project-card" data-link="https://github.com/exemplo/projeto2">
+                <h3>Projeto 2</h3>
+                <p>Descrição do projeto 2.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modal para exibir informações das habilidades -->
+    <div id="skill-modal" class="modal" style="display: none;">
+        <div class="modal-content">
+            <span id="close-modal" class="close">&times;</span>
+            <h2 id="modal-title"></h2>
+            <p id="modal-description"></p>
+        </div>
+    </div>
+
+    <script src="./js/script.js"></script>
+</body>
+</html>

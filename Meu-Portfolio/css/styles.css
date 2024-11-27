@@ -1,0 +1,368 @@
+:root {
+  --neon-blue: #00f3ff;
+  --neon-purple: #9d00ff;
+  --dark-bg: #0a0a0a;
+  --light-bg: #1e1e1e;
+  --light-text: #ffffff;
+  --muted-text: #cccccc;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+body {
+  background: var(--dark-bg);
+  color: var(--light-text);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+/* Navbar */
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  padding: 1rem 2rem;
+  background: rgba(10, 10, 10, 0.95);
+  backdrop-filter: blur(10px);
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+}
+
+.nav-links {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.nav-links a {
+  color: var(--light-text);
+  text-decoration: none;
+  font-size: 1rem;
+  padding: 0.5rem;
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+  color: var(--neon-blue);
+}
+
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(to right, var(--neon-blue), var(--neon-purple));
+  transition: width 0.3s ease, left 0.3s ease;
+  transform: translateX(-50%);
+}
+
+.nav-links a:hover::after {
+  width: 100%;
+}
+
+/* Section Base */
+section {
+  min-height: 100vh;
+  padding: 6rem 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+/* Hero Section */
+.hero {
+  background: linear-gradient(45deg, rgba(0, 243, 255, 0.1), rgba(157, 0, 255, 0.1));
+}
+
+.hero h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  background: linear-gradient(to right, var(--neon-blue), var(--neon-purple));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: glow 2s ease-in-out infinite alternate;
+}
+
+.hero p {
+  font-size: 1.2rem;
+  color: var(--muted-text);
+  margin-bottom: 1.5rem;
+}
+
+.hero-btn {
+  padding: 0.8rem 1.5rem;
+  font-size: 1rem;
+  color: var(--dark-bg);
+  background: linear-gradient(to right, var(--neon-blue), var(--neon-purple));
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.hero-btn:hover {
+  transform: scale(1.1);
+  background: linear-gradient(to left, var(--neon-blue), var(--neon-purple));
+}
+
+/* About Section */
+.about-content {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.profile-img {
+  width: 250px;
+  height: 250px;
+  border-radius: 50%;
+  background: linear-gradient(45deg, var(--neon-blue), var(--neon-purple));
+  padding: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.profile-img img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.about-content h2 {
+  margin-bottom: 1rem;
+}
+
+.about-content p {
+  text-align: justify;
+  line-height: 1.8;
+}
+
+/* Skills Section */
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 1.5rem;
+  width: 100%;
+  max-width: 800px;
+}
+
+.skill {
+  padding: 1rem;
+  background: var(--light-bg);
+  border-radius: 10px;
+  text-align: center;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: transform 0.3s ease, background 0.3s ease, color 0.3s ease;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.skill:hover {
+  transform: scale(1.05);
+  background: linear-gradient(45deg, var(--neon-blue), var(--neon-purple));
+  color: black;
+}
+
+/* Projects Section */
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  padding: 2rem 0;
+  width: 100%;
+  max-width: 1000px;
+}
+
+.project-card {
+  background: var(--light-bg);
+  border-radius: 10px;
+  padding: 1.5rem;
+  text-align: center;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+.project-card h3 {
+  margin-bottom: 1rem;
+}
+
+.project-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 10px 20px rgba(0, 243, 255, 0.2);
+}
+
+/* Modal Styling */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+}
+
+.modal-content {
+  background: var(--dark-bg);
+  padding: 2rem;
+  border-radius: 10px;
+  max-width: 500px;
+  width: 90%;
+  text-align: center;
+  border: 2px solid var(--neon-blue);
+}
+
+.modal-content h2 {
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+}
+
+.modal-content p {
+  color: var(--muted-text);
+}
+
+.close {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 1.5rem;
+  color: var(--light-text);
+  cursor: pointer;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .about-content {
+    flex-direction: column;
+    text-align: center;
+  }
+
+ /* Modal de habilidades */
+.skill-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7); /* Fundo escuro semi-transparente */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+  opacity: 0; /* Começa invisível */
+  pointer-events: none; /* Não interage até animação de entrada terminar */
+  transition: opacity 0.3s ease;
+}
+
+.skill-modal.fade-in {
+  opacity: 1;
+  pointer-events: all; /* Permite interações quando o modal estiver visível */
+}
+
+.skill-modal.fade-out {
+  opacity: 0;
+  pointer-events: none; /* Impede interações enquanto o modal está desaparecendo */
+}
+
+/* Modal de habilidades */
+.skill-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7); /* Fundo escuro semi-transparente */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+  opacity: 0; /* Começa invisível */
+  pointer-events: none; /* Não interage até animação de entrada terminar */
+  transition: opacity 0.3s ease;
+}
+
+.skill-modal.fade-in {
+  opacity: 1;
+  pointer-events: all; /* Permite interações quando o modal estiver visível */
+}
+
+.skill-modal.fade-out {
+  opacity: 0;
+  pointer-events: none; /* Impede interações enquanto o modal está desaparecendo */
+}
+
+/* Conteúdo do Modal */
+.skill-modal .modal-content {
+  background: var(--dark-bg);
+  padding: 2rem;
+  border-radius: 10px;
+  max-width: 400px;
+  width: 90%;
+  text-align: center;
+  border: 2px solid var(--neon-blue);
+  animation: scaleIn 0.3s ease;
+  cursor: pointer; /* Mostrar que o modal é clicável */
+  position: relative; /* Para posicionar o botão "X" */
+}
+
+/* Estilo do botão "X" */
+.skill-modal .modal-content .close-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: transparent;
+  border: none;
+  color: var(--neon-blue);
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.skill-modal .modal-content .close-btn:hover {
+  color: var(--neon-purple);
+}
+
+/* Animação de aumento do modal ao aparecer */
+@keyframes scaleIn {
+  from {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+
+  .hero h1 {
+    font-size: 2.5rem;
+  }
+
+  .hero p {
+    font-size: 1rem;
+  }
+
+  .profile-img {
+    width: 200px;
+    height: 200px;
+  }
+}
