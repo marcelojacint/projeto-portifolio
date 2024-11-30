@@ -23,6 +23,7 @@ body {
 
 /* Navbar */
 .navbar {
+  align-items: center;
   position: fixed;
   top: 0;
   width: 100%;
@@ -32,6 +33,13 @@ body {
   z-index: 1000;
   display: flex;
   justify-content: center;
+}
+.navbar_nome{
+  margin-right: 200px; /* Empurra o nome para a esquerda */
+    font-size: 1.5rem; /* Ajusta o tamanho da fonte */
+    font-weight: bold; /* Deixa em negrito */
+    color: var(--light-text);
+    color: var(--neon-blue);
 }
 
 .nav-links {
